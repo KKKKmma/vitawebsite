@@ -41,11 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.db.backends.mysql',
     'home',
-    'products',
-    'reservation',
-    'cart',
-    'payment',
-    'cupons',
 ]
 
 MIDDLEWARE = [
