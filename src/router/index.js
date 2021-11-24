@@ -80,21 +80,6 @@ const routes = [
     path: '/Bookinglist',
     name: 'Bookinglist',
     component: Bookinglist
-  },
-  {
-    path: '/products',
-    name: 'Products',
-    component: () => import('../views/products/ProductList.vue')
-  },
-  {
-    path: '/products/create',
-    name: 'Product Create',
-    component: () => import('../views/products/ProductCreate.vue')
-  },
-  {
-    path: '/products/edit/:id',
-    name: 'ProductEdit',
-    component: () => import('../views/products/ProductEdit.vue')
   }
 ]
 
