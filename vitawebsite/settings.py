@@ -126,3 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 該設定提供給cart購物車功能使用，表示要求在瀏覽器一關閉時session就會失效
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
