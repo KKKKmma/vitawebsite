@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import pymysql
 pymysql.install_as_MySQLdb()
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.db.backends.mysql',
+    'rest_framework',
     'home',
+    'api',
+    'vitawebsite_front',
+    'drf_yasg',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
@@ -54,11 +60,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'vitawebsite.urls'
+# ROOT_URLCONF = 'django_rest_framework_tutorial.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [],
+        'DIRS': ['frontend/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +78,14 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 WSGI_APPLICATION = 'vitawebsite.wsgi.application'
 
@@ -129,3 +145,7 @@ STATIC_URL = '/static/'
 
 # 該設定提供給cart購物車功能使用，表示要求在瀏覽器一關閉時session就會失效
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "frontend/dist/static"),
+]
