@@ -12,6 +12,7 @@ import './store/axios.js';
 import './css/style.css'; 
 import './css/product-list.css'; 
 import './css/product-info.css'; 
+import './css/bookingstyle.css'; 
 
 const app = createApp(App);
 app.use(VueSweetalert2);

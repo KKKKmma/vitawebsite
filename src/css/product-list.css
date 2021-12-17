@@ -880,7 +880,7 @@ a>.block {
 }
 .in-sidebar > li{
   width: 100%;
-  height: 32px;
+  display: block;
 }
 ul.in-sidebar {
     font-size: 20px;

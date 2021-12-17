@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="row footer-block pt-4 mt-4">
+      <div class="row footer-block">
         <div class="col d-flex justify-content-center pb-4">
           <a>
           <img src="../../../img/logo.png" width="200">

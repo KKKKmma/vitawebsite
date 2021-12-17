@@ -15,12 +15,13 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/">商品頁面</a></li>
-    <li class="breadcrumb-item active" aria-current="page">女士浴衣</li>
+    <li class="breadcrumb-item active" aria-current="page">{{ men_clothing }}女士浴衣</li>
   </ol>
 </nav>
 
 <div class="">
-
+<router-view name="childrenlist"></router-view>
+<br>
 <div class="row">
 	<div class="col-md-3">
 		<div class="block product">
@@ -175,8 +176,10 @@
   </div>
 </div>
 
+
 </template>
 <script>
+
   import productsidebar from '../../components/Product/productsidebar.vue';
   export default {
   name: 'product-catalogue',
@@ -204,25 +207,17 @@
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     >
+       <div class="user">
+      <h2>User {{ $route.params.id }}</h2>
+      111<router-view></router-view>
+    </div>
   `
   };
+
 </script>
 <style>
 h5.modal-title{
 	letter-spacing: 3px;
 }
-a.router-link-active.router-link-exact-active {
-  color: #7c7c7c;
 
-}
-a.router-link-active.router-link-exact-active:after {
-  background-image: url('../../img/linkicon.png');
-  content: "1111";
-  display: block;
-  color: #ffffff00;
-  background-position: 32px 180px;
-  background-repeat: no-repeat;
-
-
-}
 </style>
