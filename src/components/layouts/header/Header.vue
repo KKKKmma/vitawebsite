@@ -46,7 +46,7 @@
            <ul class="nav header-menu">
             <li class="nav-item"><router-link to="/">首頁</router-link></li>
             <li class="nav-item"><router-link to="/about">關於微光</router-link></li>
-            <li class="nav-item"><router-link to="/product-catalogue">商品頁面</router-link></li>
+            <li class="nav-item"><router-link to="/productcatalogue">商品頁面</router-link></li>
             <li class="nav-item"><router-link to="/rent">租賃方案</router-link></li>
             <li class="nav-item"><router-link to="/creative">文創商品</router-link></li>
             <li class="nav-item"><router-link to="/course">手作課程</router-link></li>
@@ -75,6 +75,9 @@ export default {
   justify-content: center;
   display: table-cell;
   vertical-align: middle;
-
+}
+h4.booking-icon:hover {
+    opacity: 1.75;
+    background-color: #af6363;
 }
 </style>

@@ -103,12 +103,38 @@ ul.header-menu li{
   padding-right: 30px;
 }
 
-ul.header-menu li a:hover {
-  content: " ";
-  background-image: url(../img/linkicon.png);
-  background-repeat: no-repeat;
-  background-position: 32px 180px;
+a:hover {
+    color:#847A62;
+}
+
+ul.header-menu li a:hover::after {
   color:#847A62;
+}
+
+ul.header-menu li a:hover::after {
+  background-image: url('../img/linkicon.png');
+  content: "1111";
+  display: block;
+  color: #ffffff00;
+  line-height: 20px;
+  margin-left: 30px;
+  background-repeat: no-repeat;
+  background-size: 40%;
+}
+
+a.router-link-active.router-link-exact-active {
+  color: #7c7c7c;
+
+}
+a.router-link-active.router-link-exact-active:after {
+  background-image: url('../img/linkicon.png');
+  content: "1111";
+  display: block;
+  color: #ffffff00;
+  line-height: 20px;
+  margin-left: 30px;
+  background-repeat: no-repeat;
+  background-size: 40%;
 }
 
 .banner-block{
