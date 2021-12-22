@@ -71,7 +71,7 @@
     </div>
     <div class="row pt-4">
       <div class="container-fluid text-center col"><router-link to="/product-catalogue"><button  type="button" class="btn btn-lg check-btn">繼續選擇</button></router-link></div>
-      <div class="container-fluid text-center col"><router-link to="/booking-list"><button  type="button" class="btn btn-lg more-btn">下一步填寫資料</button></router-link></div>
+      <div class="container-fluid text-center col"><button  type="button" class="btn btn-lg more-btn">下一步填寫資料</button></div>
     </div>
   </div>
   <section>
