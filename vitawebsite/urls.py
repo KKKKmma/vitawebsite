@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path,include
+from home import views
+
+from vitawebsite.views import index_page
 
 
 
@@ -23,7 +26,8 @@ from django.urls import path,include
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('user/',include("home.urls")),
-    path('home/', include('home.urls')),
+    # path('user/',include("home.urls")),
+    # path('home/', index_page),
+    url(r'^$',views.home_page, name='home'),
     path('admin/', admin.site.urls),
 ]

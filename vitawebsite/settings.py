@@ -149,7 +149,9 @@ STATIC_URL = '/static/'
 
 # 該設定提供給cart購物車功能使用，表示要求在瀏覽器一關閉時session就會失效
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+CART_SESSION_ID = 'cart'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/dist/static"),
 ]
+
