@@ -15,7 +15,8 @@ class Member(models.Model):
     create_time = models.DateTimeField(auto_now_add=True) # auto_now_add: 建立時的時間，往後修改model不會更新
     modify_time = models.DateTimeField(auto_now=True) # auto_now: 每次save都更新為當前的時間
     
-
+    def __unicode__(self):
+        return self.member_name
 
 # 員工帳號
 class User(models.Model):
@@ -27,7 +28,8 @@ class User(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)    #創建时间
     update_at = models.DateTimeField(auto_now=True)    #修改时间
 
-
+    def __unicode__(self):
+        return self.username
 
 # 商品資料    
 class Product(models.Model):
@@ -45,6 +47,8 @@ class Product(models.Model):
     modify_time = models.DateTimeField(auto_now=True)
     user_id = models.ForeignKey(User,on_delete=models.CASCADE,related_name='product_user_id')
 
+    def __unicode__(self):
+        return self.product_name
 
 # 訂單狀態
 class Order(models.Model):
@@ -57,11 +61,17 @@ class Order(models.Model):
     payment_statue = models.BooleanField(default=False) # False：未付款、Ture：已付款
     send_mail = models.BooleanField(default=False) # False：未發送、Ture：已發送
 
+    def __unicode__(self):
+        return self.product_name
+
 # 購物車狀態
 class Cart(models.Model):
     order = models.ForeignKey(Order,on_delete=models.CASCADE,related_name='cart_order_number')
     price = models.IntegerField()
-    quantity = models.PositiveIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=0)
+
+    def __unicode__(self):
+        return self.product_name
 
 # 支付狀態
 class Payment(models.Model):
@@ -70,10 +80,16 @@ class Payment(models.Model):
     price = models.ForeignKey(Cart,on_delete=models.CASCADE,related_name='payment_price')
     payment_statue = models.BooleanField(default=False) # False：未付款、Ture：已付款
 
+    def __unicode__(self):
+        return self.product_name
+
 # 商品分類表
 class classify(models.Model):
     classify_name  = models.CharField(max_length=50,primary_key=True)
     status = models.IntegerField(default=1) #狀態:1正常/2停售/9删除
     create_time = models.DateTimeField(auto_now_add=True)
     modify_time = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.product_name
 

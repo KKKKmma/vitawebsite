@@ -17,8 +17,9 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path,include
 from home import views
+from django.views.generic import TemplateView
 
-from vitawebsite.views import index_page
+# from vitawebsite.views import index_page
 
 
 
@@ -29,5 +30,6 @@ urlpatterns = [
     # path('user/',include("home.urls")),
     # path('home/', index_page),
     url(r'^$',views.home_page, name='home'),
+    url(r'^$', TemplateView.as_view(template_name="index.html")),
     path('admin/', admin.site.urls),
 ]

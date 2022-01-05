@@ -9,10 +9,14 @@ from django.db import transaction
 from rest_framework.generics import GenericAPIView
 from home.serializers import UserSerializer 
 from home.models import User
+from vitawebsite.home.models import Product
 from .serializers import UserSerializer
 from django.contrib import messages
 from django.contrib.sessions.models import Session
+from django.template.loader import get_template
 
+# 分頁
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # SMTP
 from django.core.mail import EmailMessage
@@ -61,15 +65,39 @@ def login(request):
 
 
 def home_page(request):
-    # template = get_template('index.html')
+    template = get_template('index.html')
     # posts = Post.objects.all()
     # html = template.render(locals())
+    try:
+        urid = request.GET['user_id']
+        urpass = request.GET['user_pass']
+    except:
+        urid = None
 
+    if urid != None and urpass == '12345':
+        verified = True
+    else:
+        verified = False
+    html = template.render(locals())
     # 使用HttpResponse輸出到使用者端
-    # return HttpResponse()
-    pass
+    return HttpResponse(html)
+    
 
-
+def index(request):
+    all_products = models.Product.objects.all()
+    paginator = Product(all_products,5)
+    p = request.GET.get('p')
+    try:
+        products = paginator.page(p)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+    template = get_template('index.html')
+    request_context = RequestContext(request)
+    request_context.push(locals())
+    html = template.render(request_context)
+    return HttpResponse(html)
 
 
 
