@@ -29,7 +29,7 @@
         <input type="text" id="user_id" placeholder="姓名">
       </div>
       <div class="col">
-         <label for="exampleFormControlInput1">人數</label>
+         <label for="exampleFormControlInput1">人 數</label>
         <input type="text" id="user_number" placeholder="人數">
       </div>
     </div>

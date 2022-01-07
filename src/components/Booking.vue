@@ -71,7 +71,7 @@
       <p>取消成立後7天內幫您處理退還定金的手續。</p>
       <p>預約當天下雨取消預約是無法退還押金。因天氣預報顯示預約當天下雨而更改日期或者時間也無法退還押金。</p>
       <p>TEL:080-9759-5005</p>
-      <p>為了其他客戶的權益，取消請盡早聯絡我們，謝謝！</p>
+      <p>為了其他客戶的權益，取消請盡早聯絡我們，謝謝！！</p>
     </div>
     <div class="row pt-4">
       <div class="container-fluid text-center col"><router-link to="/product-catalogue"><button  type="button" class="btn btn-lg check-btn">繼續選擇</button></router-link></div>
