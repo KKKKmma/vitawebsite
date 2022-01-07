@@ -5,18 +5,22 @@
       <h1 class="titile-style"><img src="../img/titleicon.png">商品預訂清單</h1>
     </div>
     <div class="checkout-nav pb-4">
-        <div class="step active">
-          <span class="badge"><span class="text">1</span></span>
-          <span>選定商品</span>
-        </div>
-        <div class="step">
-          <span class="badge"><span class="text">2</span></span>
-          <span>填寫資料</span>
-        </div>
-        <div class="step">
-          <span class="badge"><span class="text">3</span></span>
-          <span>訂單確認</span>
-        </div>
+      <div class="step">
+        <span class="badge"><span class="text">1</span></span>
+        <span>選定商品</span>
+      </div>
+      <div class="step">
+        <span class="badge"><span class="text">2</span></span>
+        <span>填寫資料</span>
+      </div>
+      <div class="step active">
+        <span class="badge"><span class="text">3</span></span>
+        <span>訂單明細</span>
+      </div>
+      <div class="step">
+        <span class="badge"><span class="text">4</span></span>
+        <span>付款結果</span>
+      </div>
     </div>
      <!-- Cart Item-->
     <div class="cart-item d-md-flex justify-content-between">
@@ -24,7 +28,7 @@
             <a class="cart-item-product" href="#">
                 <div class="cart-item-product-thumb"><img src="../images/album_1.jpg" alt="Product"></div>
                 <div class="cart-item-product-info">
-                    <h4 class="cart-item-product-title">{{producttitle}}</h4><span><strong>編號:</strong> ASK123</span><span><strong>租期:</strong> 2021/11/24</span>
+                    <h4 class="cart-item-product-title">{{producttitle}} {{ searchText }}</h4><span><strong>編號:</strong> ASK123</span><span><strong>租期:</strong> 2021/11/24</span>
                 </div>
             </a>
         </div>
@@ -71,14 +75,14 @@
     </div>
     <div class="row pt-4">
       <div class="container-fluid text-center col"><router-link to="/product-catalogue"><button  type="button" class="btn btn-lg check-btn">繼續選擇</button></router-link></div>
-      <div class="container-fluid text-center col"><router-link to="/booking-list"><button  type="button" class="btn btn-lg more-btn">下一步填寫資料</button></router-link></div>
+      <div class="container-fluid text-center col"><router-link to="/bookinglist"><button  type="button" class="btn btn-lg more-btn">下一步填寫資料</button></router-link></div>
     </div>
   </div>
-  <section>
+ <!--隱藏 <section>
       <h1>顯示測試</h1>
       <Search v-model:inputText="searchText" />
       {{ searchText }}
-  </section>
+  </section> -->
 </div>
 </template>
 <script>

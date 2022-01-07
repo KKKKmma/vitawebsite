@@ -157,7 +157,7 @@
 </button>
      <div>
 </div>
-<!-- Modal -->
+<!-- 隱藏彈跳窗
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" >
   <div class="modal-dialog">
     <div class="modal-content">
@@ -174,7 +174,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 </template>
