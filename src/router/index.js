@@ -13,7 +13,11 @@ import Cart from '../components/Cart.vue';
 import Creative from '../components/Creative.vue';
 import Course from '../components/Course.vue';
 import Demo from '../components/Demo.vue';
-import childrenproduct from '../components/children_product.vue';
+import childrenproduct from '../components/Product/children_product.vue';
+import pay from '../components/Product/pay.vue';
+
+
+
 
 const routes = [
   {
@@ -87,7 +91,7 @@ const routes = [
         ]
   },
   {
-    path: '/Productinfo',
+    path: '/productcatalogue/productinfo',
     name: 'Productinfo',
     component: Productinfo
   },
@@ -117,8 +121,8 @@ const routes = [
     component: Course
   },
   {
-    path: '/Booking',
-    name: 'Booking',
+    path: '/booking',
+    name: 'booking',
     component: Booking
   },
   {
@@ -128,15 +132,31 @@ const routes = [
   },
   {
     path: '/bookingcheck',
-    name: 'Bookinglist',
+    name: 'bookingcheck',
     component: Bookingcheck
+  },
+    {
+    path: '/pay',
+    name: 'pay',
+    component: pay
   }
+  ,
+  {
+    path: "/productcatalogue/:userId", 
+    component: productcatalogue
+  },
+  { path: '/productcatalogue/1', redirect: '/productcatalogue/women_clothing' }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+/*const router = createRouter({
+  history: createWebHistory(),
+  routes
+})*/
 
 router.beforeResolve((to, from, next) => {
   if (to.name) {
