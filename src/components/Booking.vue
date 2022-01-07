@@ -86,7 +86,7 @@
 </div>
 </template>
 <script>
-import Search from "../components/Search.vue";
+/*import Search from "../components/Search.vue";
 import { ref } from "vue";
 export default {
   name: 'Booking',
@@ -101,7 +101,7 @@ export default {
       producttitle
     };
   },
-};
+};*/
 </script>
 
 <style scoped>
