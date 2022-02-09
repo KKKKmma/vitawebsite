@@ -17,7 +17,7 @@
     "luxon": "^2.1.1",
     "nprogress": "^0.2.0",
     "vee-validate": "^4.1.19",
-    "vue": "^3.0.5",
+    "vue": "^3.2.4",
     "vue-datetime": "^1.0.0-beta.14",
     "vue-fragment": "^1.5.1",
     "vue-resource": "^1.5.3",
@@ -42,7 +42,9 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "node-sass": "^5.0.0",
     "sass": "^1.32.8",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.9.2"
   },
   "eslintConfig": {
     "root": true,

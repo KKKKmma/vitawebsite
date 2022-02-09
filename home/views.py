@@ -14,7 +14,7 @@ from .serializers import UserSerializer
 from django.contrib import messages
 from django.contrib.sessions.models import Session
 from django.template.loader import get_template
-
+from django.http.request import HttpRequest
 # 分頁
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
@@ -47,7 +47,7 @@ class UsersView(GenericAPIView):
 
 def login(request):
     message = []
-    if request.method =='POST':
+    if request.method == 'POST':
         login_form = forms.LoginForm(request.POST)
         if login_form.is_valid():
             login_name = request.POST['member_name'].strip()
@@ -65,23 +65,23 @@ def login(request):
         
 
 
-def home_page(request):
-    template = get_template('index.html')
-    # posts = Post.objects.all()
-    # html = template.render(locals())
-    try:
-        urid = request.GET['user_id']
-        urpass = request.GET['user_pass']
-    except:
-        urid = None
+# def home_page(request):
+#     template = get_template('index.html')
+#     # posts = Post.objects.all()
+#     # html = template.render(locals())
+#     try:
+#         urid = request.GET['user_id']
+#         urpass = request.GET['user_pass']
+#     except:
+#         urid = None
 
-    if urid != None and urpass == '12345':
-        verified = True
-    else:
-        verified = False
-    html = template.render(locals())
-    # 使用HttpResponse輸出到使用者端
-    return HttpResponse(html)
+#     if urid != None and urpass == '12345':
+#         verified = True
+#     else:
+#         verified = False
+#     html = template.render(locals())
+#     # 使用HttpResponse輸出到使用者端
+#     return HttpResponse(html)
     
 
 def index(request):

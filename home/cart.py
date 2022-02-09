@@ -5,8 +5,8 @@ from django.db.models.fields import IntegerField
 from django.http.response import HttpResponse
 from django.template.loader import get_template
 from .models import *
-from vitawebsite.home.models import Order, Product
-from views import login
+from home.models import Order, Product
+from home.views import login
 
 
 
