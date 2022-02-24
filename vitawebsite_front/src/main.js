@@ -13,6 +13,10 @@ import "./css/style.css";
 import "./css/product-list.css";
 import "./css/product-info.css";
 
+import axios from "axios";
+
+axios.defaults.baseURL = "http://127.0.0.1:8000";
+
 const app = createApp(App);
 app.use(VueSweetalert2);
 app.use(router);
