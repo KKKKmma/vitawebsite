@@ -34,6 +34,7 @@ pip install -r requirements.txt
     * email(SMTP+Gmail)
     * django-shopping-cart
     * django rest framwork
+    * 藍新金流
 
 
 
