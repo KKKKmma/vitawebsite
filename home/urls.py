@@ -5,9 +5,8 @@ from django.conf.urls import url
 from .models import User
 from rest_framework import routers, serializers, viewsets
 from rest_framework_swagger.views import get_swagger_view
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from rest_framework.routers import DefaultRouter
-from home import cart
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -33,9 +32,6 @@ urlpatterns += router.urls # 將路由器列表追加寫入django的路由列表
 urlpatterns = [
     # url(r"^docs/$", schema_view),
     # path('', views.index, name='index'),
-    url(r'^cart/$', cart.cart),
-    url(r'^additem/(\d+)/(\d+)/$',cart.add_to_cart, name='additem-url'),
-    url(r'^removeitem/(\d+)/$',cart.remove_from_cart, name='removeitem-url'),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

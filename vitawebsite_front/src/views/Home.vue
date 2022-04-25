@@ -69,7 +69,7 @@
       </h1>
     </div>
     <div class="">
-      <div class="row ">
+      <div class="row">
         <div class="col-6">
           <div class="Attractions-title text-center"><h4>人氣景點</h4></div>
           <div class="Attractions-list">
@@ -181,36 +181,19 @@
 </template>
 
 <script>
-// import axios from "axios"
 export default {
-  components: {},
   name: "Home",
+  data() {
+    return {
+      latestProducts: [],
+    };
+  },
+  components: {},
+  mounted() {
+    this.getLatestProducts();
+    document.title = "微光文創工作室 | Home";
+  },
 };
-
-// export default {
-//   name: "Home",
-//   data() {
-//     return {
-//       latestProducts: [],
-//     };
-//   },
-//   components: {},
-//   mounted() {
-//     this.getLatestProducts();
-//   },
-//   methods: {
-//     getLatestProducts() {
-//       axios
-//         .get("/api/v1/latest-products/")
-//         .then((response) => {
-//           this.latestProducts = response.data;
-//         })
-//         .catch((error) => {
-//           console.log(error);
-//         });
-//     },
-//   },
-// };
 </script>
 <style scoped>
 a {
