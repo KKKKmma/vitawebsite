@@ -34,7 +34,6 @@ pip install -r requirements.txt
     * email(SMTP+Gmail)
     * django-shopping-cart
     * django rest framwork
-    * 藍新金流
 
 
 
@@ -44,3 +43,6 @@ pip install -r requirements.txt
 * 部署
   * Docker
   * Heroku
+
+----
+客服系統：LineBot
