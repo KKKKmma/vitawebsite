@@ -26,8 +26,8 @@ def checkout(request):
         try:
             charge = stripe.Charge.create(
                 amount=int(paid_amount * 100),
-                currency='USD',
-                description='Charge from Djackets',
+                currency='TWD',
+                description='Charge from Cart',
                 source=serializer.validated_data['stripe_token']
             )
 
@@ -45,5 +45,7 @@ class OrdersList(APIView):
 
     def get(self, request, format=None):
         orders = Order.objects.filter(user=request.user)
-        serializer = MyOrderSerializer(orders, many=True)
+        serializer = OrderSerializer(orders, many=True)
         return Response(serializer.data)
+
+

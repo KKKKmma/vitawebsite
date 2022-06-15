@@ -9,6 +9,8 @@
 # import binascii
 # import hashlib
 
+
+
 # '''Encrypt/Decrypt'''
 
 # def AES_encrypt(data, key, iv):

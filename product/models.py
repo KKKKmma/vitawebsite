@@ -8,6 +8,7 @@ from django.core.files import File
 # 商品資料    
 class Product(models.Model):
     product_number = models.CharField(max_length=50,primary_key=True)
+    product_name = models.CharField(max_length=50,default='')
     reservation_date = models.DateField()
     reservation_time = models.TimeField() 
     stock = models.BooleanField(default=True)

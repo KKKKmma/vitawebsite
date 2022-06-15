@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from typing import Tuple
 import pymysql
 pymysql.install_as_MySQLdb()
 import os
+from oscar.defaults import *
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,7 +53,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'djoser',
-
+    'django_filters',
     'order',
     'product',
 ]
@@ -65,13 +68,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# 解決跨域問題
+# 解決跨域問題，不建議使用
 CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'vitawebsite.urls'
@@ -162,6 +165,7 @@ STATIC_URL = '/static/'
 # 該設定提供給cart購物車功能使用，表示要求在瀏覽器一關閉時session就會失效
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 CART_SESSION_ID = 'cart'
+SESSION_COOKIE_AGE = 86400
 
 
 # Vue project location

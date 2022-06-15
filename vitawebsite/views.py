@@ -31,6 +31,7 @@ def home_page(request):
     # 使用HttpResponse輸出到使用者端
     return HttpResponse(html)
 
+# Test
 def simple_api_view(request):
     response = JsonResponse({
         'data': [

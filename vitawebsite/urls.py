@@ -12,10 +12,11 @@ from vitawebsite.views import home_page
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', index, name='index'),
-    path('api/phrases/', simple_api_view, name='phrases'),
-    path('admin/', admin.site.urls),
+    # path('api/phrases/', simple_api_view, name='phrases'), # Test
+    path('admin/', admin.site.urls), # 管理者
     path('api/vi/',include("djoser.urls")),
     path('api/v1/',include('djoser.urls.authtoken')),
-    path('api/v1/', include('product.urls')),
+    path('api/v1/product/', include('product.urls')),
+    path('api-auth/', include('rest_framework.urls'))
     # url(r'^$', TemplateView.as_view(template_name="index.html")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

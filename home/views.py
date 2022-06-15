@@ -129,3 +129,15 @@ from home import payment_system
 #         newebpay_decrypt_data = decrypt_data['Result']
 #         # Then do whatever you like to the return datas, like store transaction data into database
 #         return Response({'code': '000', 'data': 'Whatever'})
+
+
+
+class Payment(APIView):
+    def payment_status():
+        pass
+
+    def payment_failed():
+        pass
+
+    def payment_success():
+        pass

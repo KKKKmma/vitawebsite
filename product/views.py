@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.db.models import Q
-from django.http import Http404
+from django.views.decorators.csrf import csrf_exempt
+from requests import request
+from rest_framework.parsers import JSONParser
+from django.http.response import JsonResponse
+from django.http import Http404,HttpResponse
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,11 +14,44 @@ from .serializers import ProductSerializer, ClassifySerializer
 
 import pymysql
 
-class ProductsList(APIView):
-    def get(self, request, format=None):
-        products = Product.objects.all()
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
+@csrf_exempt
+class ProductsAPI(APIView):
+    def __init__(self, products, serializer):
+        self.products = products
+        self.serializer = serializer
+    
+    def product_request(self, request, format=None):
+        if request.method == "GET":
+            products = Product.objects.all()
+            products_list = []
+            for product in products:
+                products_list.append({
+                    "product_number" : Product.product_number,
+                    "stock" : Product.stock,
+                    "category" : Product.category,
+                    "status" : Product.status,
+                })
+            serializer = ProductSerializer(products, many=True)
+            return JsonResponse(ProductSerializer.data)
+        elif request.method == "POST":
+            products_data = JSONParser().parse(request)
+            products_serializer = ProductSerializer(data=products_data)
+            if products_serializer.is_valid():
+                products_serializer.save()
+                return JsonResponse("Add Successfully", safe=False)
+        elif request.method == "PUT":
+            products_data = JSONParser().parse(request)
+            products = products.objects.get(ProductID=products_data["ProductID"])
+            products_serializer = ProductSerializer(products,data=products_data)
+            if products_serializer.is_valid():
+                products_serializer.save()
+                return JsonResponse("Update Successfully", safe=False)
+            return JsonResponse("Failed to Update")
+        elif request.method == "DELETE":
+            products = Product.objects.get(productsID=id)
+            products.delete()
+            return JsonResponse("Delete Successfully", safe=False)
+        
 
 
 class ProductDetail(APIView):
@@ -30,6 +66,13 @@ class ProductDetail(APIView):
         serializer = ProductSerializer(product)
         return Response(serializer.data)
 
+    def delete(self, request, pd):
+        try:
+            product = Product.objects.get(pd=pd)
+        except:
+            return HttpResponse()
+        product.delete()
+        return HttpResponse()
 
 class classifyDetail(APIView):
     def get_object(self, category_slug):
@@ -43,45 +86,6 @@ class classifyDetail(APIView):
         serializer = ClassifySerializer(category)
         return Response(serializer.data)
 
-@api_view(['POST'])
-def search(request):
-    query = request.data.get('query', '')
-
-    if query:
-        products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
-    else:
-        return Response({"products": []})
-
-class HandleDB:
-
-    def __init__(self):
-        # 讀取配置檔案的資料庫資訊
-        self.con = pymysql.connect(host=pymysql.get_str("mysql", "localhost"),
-                                   user=pymysql.get_str("mysql", "emma"),
-                                   password=pymysql.get_str("mysql", "AS098890emma"),
-                                   port=pymysql.get_int("mysql", "8000"),
-                                   charset="utf8"
-                                   )
-        self.cur = self.con.cursor()
-
-
-    def create_product(self):
-        pass
-
-    def increase_product(self):
-        pass
-
-    def update_product(self):
-        pass
-
-    def delete_product(self):
-        pass
 
 
 
-
-    def close(self):
-        self.cur.close()	 # 關閉遊標物件
-        self.con.close()	# 斷開連線

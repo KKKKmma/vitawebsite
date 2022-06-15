@@ -32,6 +32,9 @@ urlpatterns += router.urls # 將路由器列表追加寫入django的路由列表
 urlpatterns = [
     # url(r"^docs/$", schema_view),
     # path('', views.index, name='index'),
+    url(r'^$', views.cart_detail,name='cart_detail'),
+    url(r'^add/(?P<product_id>\d+)/$',views.cart_add,name='cart_add'),
+    url(r'^remove/(?P<product_id>\d+)/$',views.cart_remove,name='cart_remove'),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
