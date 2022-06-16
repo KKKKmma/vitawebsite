@@ -23,7 +23,6 @@ pip install -r requirements.txt
 
 [Flow_chat](https://github.com/KKKKmma/vitawebsite/blob/main/flow_chat.pdf)
 
-### 資料庫設計：
 
 
 ### 使用技術與工具
